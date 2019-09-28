@@ -4,7 +4,7 @@ const app = express();
 const mongoose = require("mongoose");
 const axios = require("axios");
 const path = require("path");
-const db = require("./models");
+const db = require("./models/BusinessPartner");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

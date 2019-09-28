@@ -5,14 +5,14 @@ module.exports = function(app) {
   
     app.get("/test", (req, res) => {
       res.json({
-        msg: "pastClients route works!"
+        msg: "test route works!"
       });
     });
   
     app.get("/api/pastClients", (req, res) => {
       db.PastClient.find({})
         .then(function(dbPastClient) {
-          // If any Notes are found, send them to the client
+          // If any PCs are found, send them to the client
           res.json(dbPastClient);
         })
         .catch(function(err) {
@@ -28,14 +28,17 @@ module.exports = function(app) {
         lastName: req.body.lastName,
         phoneNumber: req.body.phoneNumber,
         emailAddress: req.body.emailAddress,
-        homeAddress: req.body.homeAddress,
+        streetAddress: req.body.streetAddress,
+        city: req.body.city,
+        state: req.body.state,
+        zipCode: req.body.zipCode,
         closingDate: req.body.closingDate,
         loanType: req.body.loanType,
         loanAmount: req.body.loanAmount,
         interestRate: req.body.interestRate,
         notes: req.body.notes
       };
-      db.pastClient.create(pastClient)
+      db.PastClient.create(pastClient)
         .then(() => {
           res.json({
             success: true

@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const statesArray = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DC", "DE", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"];
-const loanType = ["refinance", "purchase"];
+const loanType = ["Refinance", "Purchase"];
 
 
 const PastClientSchema = new Schema({
@@ -21,16 +21,23 @@ const PastClientSchema = new Schema({
         type: String,
         required: true
     },
-    homeAddress:{
-        street: String,
-        city: String,
-        state: {
-            type: String,
-            uppercase: true,
-            required: true,
-            enum: statesArray
-        },
-        zip: Number
+    streetAddress:{
+        type: String,
+        required: true
+    },
+    city:{
+        type: String,
+        required: true
+    },
+    state:{
+        type: String,
+        uppercase: true,
+        required: true,
+        enum: statesArray,
+    },
+    zipCode:{
+        type: Number,
+        required: true
     },
     closingDate:{
         type: Date,

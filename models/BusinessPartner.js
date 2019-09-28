@@ -21,16 +21,23 @@ const BusinessPartnerSchema = new Schema({
         type: String,
         required: true
     },
-    businessAddress:{
-        street: String,
-        city: String,
-        state: {
-            type: String,
-            uppercase: true,
-            required: true,
-            enum: statesArray
-        },
-        zip: Number
+    streetAddress:{
+        type: String,
+        required: true
+    },
+    city:{
+        type: String,
+        required: true
+    },
+    state:{
+        type: String,
+        uppercase: true,
+        required: true,
+        enum: statesArray,
+    },
+    zipCode:{
+        type: Number,
+        required: true
     },
     relationshipType:{
         type: String,
@@ -43,6 +50,6 @@ const BusinessPartnerSchema = new Schema({
     }
 })
 
-const BusinessPartner = mongoose.model("Business Partner", BusinessPartnerSchema);
+const BusinessPartner = mongoose.model("BusinessPartner", BusinessPartnerSchema);
 
 module.exports = BusinessPartner;

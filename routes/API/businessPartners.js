@@ -5,14 +5,15 @@ module.exports = function(app) {
   
     app.get("/test", (req, res) => {
       res.json({
-        msg: "businessPartners route works!"
+        msg: "test route works!"
       });
     });
   
     app.get("/api/businessPartners", (req, res) => {
+      console.log("here")
       db.BusinessPartner.find({})
         .then(function(dbBusinessPartner) {
-          // If any Notes are found, send them to the client
+          // If any BPs are found, send them to the client
           res.json(dbBusinessPartner);
         })
         .catch(function(err) {
@@ -23,16 +24,19 @@ module.exports = function(app) {
   
     app.post("/api/businessPartners", (req, res) => {
       console.log("yesss");
-      const businessPartner ={
+      const businessPartner = {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         phoneNumber: req.body.phoneNumber,
         emailAddress: req.body.emailAddress,
-        businessAddress: req.body.businessAddress,
+        streetAddress: req.body.streetAddress,
+        city: req.body.city,
+        state: req.body.state,
+        zipCode: req.body.zipCode,
         relationshipType: req.body.relationshipType,
         notes: req.body.notes
       }
-      db.businessPartner.create(businessPartner)
+      db.BusinessPartner.create(businessPartner)
         .then(() => {
           res.json({
             success: true
