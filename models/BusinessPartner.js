@@ -50,6 +50,6 @@ const BusinessPartnerSchema = new Schema({
     }
 })
 
-const BusinessPartner = mongoose.model("BusinessPartner", BusinessPartnerSchema);
+const BusinessPartner = mongoose.model("Business Partner", BusinessPartnerSchema);
 
 module.exports = BusinessPartner;

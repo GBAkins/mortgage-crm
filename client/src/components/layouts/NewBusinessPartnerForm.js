@@ -1,23 +1,20 @@
 import React, { Component } from "react";
-import PastClients from '../../utils/PastClients';
+import BusinessPartnersAPI from '../../utils/BusinessPartnersAPI';
 import M from 'materialize-css';
 
-export class NewPastClient extends Component {
+export class NewBusinessPartner extends Component {
   state={
-    pcFirstName: "",
-    pcLastName: "",
-    pcPhoneNumber: "",
-    pcEmailAddress: "",
-    pcStreetAddress: "",
-    pcCity: "",
-    pcState: "",
-    pcZipCode: "",
-    pcClosingDate: "",
-    pcLoanType: "",
-    pcLoanAmount: "",
-    pcInterestRate: "",
-    pcNotes: "",
-    pastClients: []
+    bpFirstName: "",
+    bpLastName: "",
+    bpPhoneNumber: "",
+    bpEmailAddress: "",
+    bpStreetAddress: "",
+    bpCity: "",
+    bpState: "",
+    bpZipCode: "",
+    bpRelationshipType: "",
+    bpNotes: "",
+    businessPartners: []
   };
 
   componentDidMount(){
@@ -34,37 +31,31 @@ export class NewPastClient extends Component {
 
   handleSubmit = e =>{
     e.preventDefault();
-    console.log(this.state.pcFirstName);
-    console.log(this.state.pcLastName);
-    console.log(this.state.pcPhoneNumber);
-    console.log(this.state.pcEmailAddress);
-    console.log(this.state.pcStreetAddress);
-    console.log(this.state.pcCity);
-    console.log(this.state.pcState);
-    console.log(this.state.pcZipCode);
-    console.log(this.state.pcClosingDate);
-    console.log(this.state.pcLoanType);
-    console.log(this.state.pcLoanAmount);
-    console.log(this.state.pcInterestRate);
-    console.log(this.state.pcNotes);
+    console.log(this.state.bpFirstName);
+    console.log(this.state.bpLastName);
+    console.log(this.state.bpPhoneNumber);
+    console.log(this.state.bpEmailAddress);
+    console.log(this.state.bpStreetAddress);
+    console.log(this.state.bpCity);
+    console.log(this.state.bpState);
+    console.log(this.state.bpZipCode);
+    console.log(this.state.bpRelationshipType);
+    console.log(this.state.bpNotes);
 
-    const newPastClient = {
-      firstName: this.state.pcFirstName,
-      lastName: this.state.pcLastName,
-      phoneNumber: this.state.pcPhoneNumber,
-      emailAddress: this.state.pcEmailAddress,
-      streetAddress: this.state.pcStreetAddress,
-      city: this.state.pcCity,
-      state: this.state.pcState,
-      zipCode: this.state.pcZipCode,
-      closingDate: this.state.pcClosingDate,
-      loanType: this.state.pcLoanType,
-      loanAmount: this.state.pcLoanAmount,
-      interestRate: this.state.pcInterestRate,
-      notes: this.state.pcNotes
+    const newBusinessPartner = {
+      firstName: this.state.bpFirstName,
+      lastName: this.state.bpLastName,
+      phoneNumber: this.state.bpPhoneNumber,
+      emailAddress: this.state.bpEmailAddress,
+      streetAddress: this.state.bpStreetAddress,
+      city: this.state.bpCity,
+      state: this.state.bpState,
+      zipCode: this.state.bpZipCode,
+      relationshipType: this.state.bpRelationshipType,
+      notes: this.state.bpNotes
     };
 
-    PastClients.savePastClient(newPastClient)
+    BusinessPartnersAPI.saveBusinessPartner(newBusinessPartner)
     .then(console.log("worked"))
     .catch((err)=>console.log(err));
   }
@@ -73,43 +64,43 @@ export class NewPastClient extends Component {
     return (
       
       <div className="row">
-        <h4>Add a New Past Client Contact</h4>
+        <h4>Add a New Business Partner Contact</h4>
         <form className="col s12" onSubmit={this.handleSubmit}>
           <div className="row">
             <div className="input-field col s6">
-              <input placeholder="John" id="first_name" type="text" className="validate" name="pcFirstName" onChange={this.handleChange} />
+              <input placeholder="John" id="first_name" type="text" className="validate" name="bpFirstName" onChange={this.handleChange} />
               <label htmlFor="first_name">First Name</label>
             </div>
             <div className="input-field col s6">
-              <input placeholder="Doe" id="last_name" type="text" className="validate" name="pcLastName" onChange={this.handleChange} />
+              <input placeholder="Doe" id="last_name" type="text" className="validate" name="bpLastName" onChange={this.handleChange} />
               <label htmlFor="last_name">Last Name</label>
             </div>
           </div>
           <div className="row">
             <div className="input-field col s12">
-              <input placeholder="(123)456-7890" id="phone_number" type="tel" className="validate" name="pcPhoneNumber" onChange={this.handleChange} />
+              <input placeholder="(123)456-7890" id="phone_number" type="tel" className="validate" name="bpPhoneNumber" onChange={this.handleChange} />
               <label htmlFor="phone_number">Telephone</label>
             </div>
           </div>
           <div className="row">
             <div className="input-field col s12">
-              <input placeholder="jdoe@gmail.com" id="email_address" type="email" className="validate" name="pcEmailAddress" onChange={this.handleChange}/>
+              <input placeholder="jdoe@gmail.com" id="email_address" type="email" className="validate" name="bpEmailAddress" onChange={this.handleChange}/>
               <label htmlFor="email_address">Email</label>
             </div>
           </div>
           <div className="row">
             <div className="input-field col s12">
-              <input placeholder="123 Industry Blvd, Suite 300" id="street_address" type="text" className="validate" name="pcStreetAddress" onChange={this.handleChange}/>
+              <input placeholder="123 Industry Blvd, Suite 300" id="street_address" type="text" className="validate" name="bpStreetAddress" onChange={this.handleChange}/>
               <label htmlFor="street_address">Street Address</label>
             </div>
           </div>
           <div className="row">
-            <div className="input-field col s4">
-              <input placeholder="Chicago" id="city" type="text" className="validate" name="pcCity" onChange={this.handleChange}/>
+            <div className="input-field col s3">
+              <input placeholder="Chicago" id="city" type="text" className="validate" name="bpCity" onChange={this.handleChange}/>
               <label htmlFor="city">City</label>
             </div>
-            <div className="input-field col s4">
-              <select placeholder="Illinois" id="state" className="validate" name="pcState" onChange={this.handleChange}>
+            <div className="input-field col s3">
+              <select placeholder="Illinois" id="state" className="validate" name="bpState" onChange={this.handleChange}>
                 <option value="AL">Alabama</option>
                 <option value="AK">Alaska</option>
                 <option value="AZ">Arizona</option>
@@ -164,40 +155,34 @@ export class NewPastClient extends Component {
               </select>
               <label>Select State</label>
             </div>
-            <div className="input-field col s4">
-              <input placeholder="60007" id="zip" type="text" className="validate" name="pcZipCode" onChange={this.handleChange}/>
+            <div className="input-field col s3">
+              <input placeholder="60007" id="zip" type="text" className="validate" name="bpZipCode" onChange={this.handleChange}/>
               <label htmlFor="zip">ZIP</label>
             </div>
-          </div>
-          <div className="row">
             <div className="input-field col s3">
-              <input type="text" className="datepicker" id="closingDate" name="pcClosingDate" onChange={this.handleChange} />
-              <label htmlFor="closingDate">Closing Date</label>
-            </div>
-            <div className="input-field col s3">
-              <select placeholder="..." id="loanType" className="validate" name="pcLoanType" onChange={this.handleChange}>
-                <option value="...">...</option>
-                <option value="Purchase">Purchase</option>
-                <option value="Refinance">Refinance</option>
+              <select id="relationshipType" className="validate" name="bpRelationshipType" onChange={this.handleChange}>
+                <option value="Realtor">Realtor</option>
+                <option value="InsuranceAgent">Insurance Agent</option>
+                <option value="Accountant">Accountant</option>
+                <option value="Business Manager">Business Manager</option>
+                <option value="Closing Attorney">Closing Attorney</option>
+                <option value="Home Inspector">Home Inspector</option>
+                <option value="Banker">Banker</option>
               </select>
-              <label>Loan Type</label>
-            </div>
-            <div className="input-field col s3">
-              <input placeholder="100,000" id="loanAmount" type="text" className="validate" name="pcLoanAmount" onChange={this.handleChange} />
-              <label htmlFor="loanAmount">Loan Amount</label>
-            </div>
-            <div className="input-field col s3">
-              <input placeholder="4.500%" id="interestRate" type="text" className="validate" name="pcInterestRate" onChange={this.handleChange} />
-              <label htmlFor="interestRate">Interest Rate</label>
+              <label>Relationship</label>
             </div>
             <div className="input-field col s12">
-              <input placeholder="(Optional)" id="notes" type="text" className="validate" name="pcNotes" onChange={this.handleChange} />
+              <input placeholder="(Optional)" id="notes" type="text" className="validate" name="bpNotes" onChange={this.handleChange} />
               <label htmlFor="notes">Notes</label>
             </div>
           </div>
-          <button className="btn waves-effect waves-light" type="submit" name="action">
-            Submit
-          </button>
+          <button
+              className="btn waves-effect waves-light"
+              type="submit"
+              name="action"
+            >
+              Submit
+            </button>
         </form>
       </div>
 
@@ -205,4 +190,4 @@ export class NewPastClient extends Component {
   }
 }
 
-export default NewPastClient;
+export default NewBusinessPartner;

@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Navbar from './components/layouts/Navbar';
-import NewBusinessPartner from './components/layouts/NewBusinessPartner';
-import NewPastClient from './components/layouts/NewPastClient';
+import Dashboard from "./components/pages/Dashboard";
+import BusinessPartners from "./components/pages/BusinessPartners";
+import PastClients from "./components/pages/PastClients";
+import NewBusinessPartner from "./components/pages/NewBusinessPartner";
+import NewPastClient from "./components/pages/NewPastClient";
 import Container from './components/layouts/Container';
-import PastClients from './utils/PastClients';
-import BusinessPartners from './utils/BusinessPartners';
+import PastClientsAPI from './utils/PastClientsAPI';
+import BusinessPartnersAPI from './utils/BusinessPartnersAPI';
 import 'materialize-css/dist/css/materialize.min.css';
+import M from 'materialize-css';
 
 
 export class App extends Component {
@@ -16,10 +21,11 @@ export class App extends Component {
   }
 
   componentDidMount() {
-    PastClients.getPastClients()
+    M.AutoInit();
+    PastClientsAPI.getPastClients()
     .then(res => this.setState({ pastClients: res.data, loading: false }))
     .catch(err => console.log(err.data));
-    BusinessPartners.getBusinessPartners()
+    BusinessPartnersAPI.getBusinessPartners()
     .then(res => this.setState({ businessPartners: res.data, loading: false }))
     .catch(err => console.log(err.data));
   }
@@ -27,13 +33,18 @@ export class App extends Component {
   render() {
     
     return (
-      <div>
+      <Router>
+        <div>
           <Navbar />
           <Container>
-            <NewBusinessPartner />
-            <NewPastClient />
+            <Route exact path="/" component={Dashboard} />
+            <Route exact path="/PastClients" component={PastClients} />
+            <Route exact path="/BusinessPartners" component={BusinessPartners} />
+            <Route exact path="/NewBusinessPartner" component={NewBusinessPartner} />
+            <Route exact path="/NewPastClient" component={NewPastClient} />
           </Container>
-      </div>
+        </div>
+      </Router>
     )
   }
 }
