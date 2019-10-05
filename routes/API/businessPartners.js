@@ -21,6 +21,18 @@ module.exports = function(app) {
           res.json(err);
         });
     });
+
+    app.get("/api/businessPartners/:id", (req, res) => {
+      db.BusinessPartner.findOne({_id:req.params.id})
+        .then(function(dbBusinessPartner) {
+          // If any BPs are found, send them to the client
+          res.json(dbBusinessPartner);
+        })
+        .catch(function(err) {
+          // If an error occurs, send it back to the client
+          res.json(err);
+        });
+    });
   
     app.post("/api/businessPartners", (req, res) => {
       console.log("yesss");
@@ -44,6 +56,18 @@ module.exports = function(app) {
         })
         .catch(err => {
           throw err;
+        });
+    });
+
+    app.delete("/api/businessPartners/:id", (req, res) => {
+      db.BusinessPartner.deleteOne({_id:req.params.id})
+        .then(function(dbBusinessPartner) {
+          // If any BPs are found, send them to the client
+          res.json(dbBusinessPartner);
+        })
+        .catch(function(err) {
+          // If an error occurs, send it back to the client
+          res.json(err);
         });
     });
   };

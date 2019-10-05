@@ -20,6 +20,19 @@ module.exports = function(app) {
           res.json(err);
         });
     });
+
+    app.get("/api/pastClients/:id", (req, res) => {
+      db.PastClient.findOne({_id:req.params.id})
+        .then(function(dbPastClient) {
+          // If any PCs are found, send them to the client
+          res.json(dbPastClient);
+        })
+        .catch(function(err) {
+          // If an error occurs, send it back to the client
+          res.json(err);
+        });
+    });
+  
   
     app.post("/api/pastClients", (req, res) => {
       console.log("yesss");
@@ -33,6 +46,7 @@ module.exports = function(app) {
         state: req.body.state,
         zipCode: req.body.zipCode,
         closingDate: req.body.closingDate,
+        birthday: req.body.birthday,
         loanType: req.body.loanType,
         loanAmount: req.body.loanAmount,
         interestRate: req.body.interestRate,
@@ -46,6 +60,18 @@ module.exports = function(app) {
         })
         .catch(err => {
           throw err;
+        });
+    });
+
+    app.delete("/api/pastClients/:id", (req, res) => {
+      db.PastClient.deleteOne({_id:req.params.id})
+        .then(function(dbPastClient) {
+          // If any PCs are found, send them to the client
+          res.json(dbPastClient);
+        })
+        .catch(function(err) {
+          // If an error occurs, send it back to the client
+          res.json(err);
         });
     });
   };

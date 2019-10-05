@@ -15,7 +15,6 @@ export default function Navbar() {
                     <a href="/" className="brand-logo">CRM</a>
                     <ul className="right hide-on-med-and-down">
                         <li><a href="/">Dashboard</a></li>
-                        <li><a href="/about">About</a></li>
                         <li><a className="dropdown-trigger" href="#!" data-target="dropdown1">Contacts<i className="material-icons right">arrow_drop_down</i></a></li>
                     </ul>
                 </div>

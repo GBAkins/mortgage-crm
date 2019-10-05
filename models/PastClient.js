@@ -43,6 +43,10 @@ const PastClientSchema = new Schema({
         type: Date,
         required: true
     },
+    birthday:{
+        type: Date,
+        required: true
+    },
     loanType:{
         type: String,
         required: true,

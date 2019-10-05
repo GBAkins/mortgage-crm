@@ -25,18 +25,19 @@ class BusinessPartners extends Component {
   render() {
     return (
       <Container>
-          {this.state.businessPartners.length ? (
-            <List>
-                {this.state.businessPartners.map(businessPartner => (
-                    <ListItem key={businessPartner._id}>
-                        <a href={"/businessPartners/" + businessPartner._id}>
-                            <strong>
-                                {businessPartner.firstName}{businessPartner.lastName}
-                            </strong>
-                        </a>
-                    </ListItem>
-                ))}
-            </List>
+        <h5>Business Partners</h5>
+        {this.state.businessPartners.length ? (
+          <List>
+              {this.state.businessPartners.map(businessPartner => (
+                  <ListItem key={businessPartner._id}>
+                      <a href={"/businessPartners/" + businessPartner._id}>
+                          <strong>
+                              {businessPartner.firstName}{businessPartner.lastName}
+                          </strong>
+                      </a>
+                  </ListItem>
+              ))}
+          </List>
         ) : (
             <h3>No Business Partners to Display</h3>
         )}

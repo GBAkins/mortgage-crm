@@ -12,6 +12,7 @@ export class NewPastClient extends Component {
     pcCity: "",
     pcState: "",
     pcZipCode: "",
+    pcBirthday: "",
     pcClosingDate: "",
     pcLoanType: "",
     pcLoanAmount: "",
@@ -42,6 +43,7 @@ export class NewPastClient extends Component {
     console.log(this.state.pcCity);
     console.log(this.state.pcState);
     console.log(this.state.pcZipCode);
+    console.log(this.state.pcBirthday);
     console.log(this.state.pcClosingDate);
     console.log(this.state.pcLoanType);
     console.log(this.state.pcLoanAmount);
@@ -57,6 +59,7 @@ export class NewPastClient extends Component {
       city: this.state.pcCity,
       state: this.state.pcState,
       zipCode: this.state.pcZipCode,
+      birthday: this.state.pcBirthday,
       closingDate: this.state.pcClosingDate,
       loanType: this.state.pcLoanType,
       loanAmount: this.state.pcLoanAmount,
@@ -86,9 +89,13 @@ export class NewPastClient extends Component {
             </div>
           </div>
           <div className="row">
-            <div className="input-field col s12">
+            <div className="input-field col s9">
               <input placeholder="(123)456-7890" id="phone_number" type="tel" className="validate" name="pcPhoneNumber" onChange={this.handleChange} />
               <label htmlFor="phone_number">Telephone</label>
+            </div>
+            <div className="input-field col s3">
+              <input type="text" className="datepicker" id="birthday" name="pcBirthday" onChange={this.handleChange} />
+              <label htmlFor="birthday">Birthday</label>
             </div>
           </div>
           <div className="row">

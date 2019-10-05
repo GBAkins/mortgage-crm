@@ -24,18 +24,19 @@ class PastClients extends Component {
   render() {
     return (
       <Container>
+        <h5>Past Clients</h5>
         {this.state.pastClients.length ? (
-            <List>
-                {this.state.pastClients.map(pastClient => (
-                    <ListItem key={pastClient._id}>
-                        <a href={"/pastClients/" + pastClient._id}>
-                            <strong>
-                                {pastClient.firstName}{pastClient.lastName}
-                            </strong>
-                        </a>
-                    </ListItem>
-                ))}
-            </List>
+          <List>
+              {this.state.pastClients.map(pastClient => (
+                  <ListItem key={pastClient._id}>
+                      <a href={"/pastClients/" + pastClient._id}>
+                          <strong>
+                              {pastClient.firstName} {pastClient.lastName}
+                          </strong>
+                      </a>
+                  </ListItem>
+              ))}
+          </List>
         ) : (
             <h3>No Past Clients to Display</h3>
         )}
