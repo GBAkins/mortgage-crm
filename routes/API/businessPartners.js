@@ -10,7 +10,6 @@ module.exports = function(app) {
     });
   
     app.get("/api/businessPartners", (req, res) => {
-      console.log("here")
       db.BusinessPartner.find({})
         .then(function(dbBusinessPartner) {
           // If any BPs are found, send them to the client
@@ -35,7 +34,6 @@ module.exports = function(app) {
     });
   
     app.post("/api/businessPartners", (req, res) => {
-      console.log("yesss");
       const businessPartner = {
         firstName: req.body.firstName,
         lastName: req.body.lastName,

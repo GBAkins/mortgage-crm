@@ -2,10 +2,12 @@ import React, { Component } from "react";
 import PastClientsAPI from "../../utils/PastClientsAPI";
 import Container from "../layouts/Container";
 import { IndivContact, IndivContactItem } from "../layouts/IndivContact";
+import {Redirect} from "react-router-dom";
 
 class IndivPastClient extends Component {
   state = {
-    pastClient: {}
+    pastClient: {},
+    redirect: false
   };
 
   componentDidMount() {
@@ -24,18 +26,24 @@ class IndivPastClient extends Component {
   handleDelete = e => {
     e.preventDefault();
     PastClientsAPI.deletePastClient(this.props.match.params.id)
-    .then(console.log("worked"))
+    .then(() => { 
+      this.setState({redirect: true})
+      console.log("deleted")
+    })
     .catch((err)=>console.log(err));
   };
 
   render() {
+    if (this.state.redirect) {
+      return <Redirect to="/PastClients" />
+    }
     return (
       <Container>
         <IndivContact>
           <h5>{this.state.pastClient.firstName} {this.state.pastClient.lastName}</h5>
           <IndivContactItem>
             <h6>{this.state.pastClient.phoneNumber}</h6>
-            <h6>{this.state.pastClient.emailAddress}</h6>
+            <a href={"mailto:"+this.state.pastClient.emailAddress+"?subject=Happy Birthday!&body=Hey "+this.state.pastClient.firstName+", just wanted to wish you a Happy Birthday. I hope you got to spend it with loved ones. If you need anything, feel free to reach out."}><h6>{this.state.pastClient.emailAddress}</h6></a>
             <h6>{this.state.pastClient.streetAddress}</h6>
             <h6>{this.state.pastClient.city}, {this.state.pastClient.state} {this.state.pastClient.zipCode}</h6>
             <h6>DOB: {this.state.pastClient.birthday}</h6>

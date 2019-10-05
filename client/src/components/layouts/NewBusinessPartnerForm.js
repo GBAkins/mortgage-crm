@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import BusinessPartnersAPI from '../../utils/BusinessPartnersAPI';
 import M from 'materialize-css';
+import {Redirect} from "react-router-dom";
 
 export class NewBusinessPartner extends Component {
   state={
@@ -14,7 +15,8 @@ export class NewBusinessPartner extends Component {
     bpZipCode: "",
     bpRelationshipType: "",
     bpNotes: "",
-    businessPartners: []
+    businessPartners: [],
+    redirect: false
   };
 
   componentDidMount(){
@@ -56,11 +58,17 @@ export class NewBusinessPartner extends Component {
     };
 
     BusinessPartnersAPI.saveBusinessPartner(newBusinessPartner)
-    .then(console.log("worked"))
+    .then(() => {
+      this.setState({redirect: true})
+      console.log("saved BP")
+    })
     .catch((err)=>console.log(err));
   }
 
   render() {
+    if (this.state.redirect) {
+      return <Redirect to="/businessPartners" />
+    }
     return (
       
       <div className="row">

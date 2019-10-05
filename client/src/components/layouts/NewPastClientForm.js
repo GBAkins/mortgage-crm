@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PastClientsAPI from '../../utils/PastClientsAPI';
 import M from 'materialize-css';
+import {Redirect} from "react-router-dom";
 
 export class NewPastClient extends Component {
   state={
@@ -18,7 +19,8 @@ export class NewPastClient extends Component {
     pcLoanAmount: "",
     pcInterestRate: "",
     pcNotes: "",
-    pastClients: []
+    pastClients: [],
+    redirect: false
   };
 
   componentDidMount(){
@@ -68,11 +70,17 @@ export class NewPastClient extends Component {
     };
 
     PastClientsAPI.savePastClient(newPastClient)
-    .then(console.log("worked"))
+    .then(() => { 
+      this.setState({redirect: true})
+      console.log("saved PC")
+    })
     .catch((err)=>console.log(err));
   }
 
   render() {
+    if (this.state.redirect) {
+      return <Redirect to="/pastClients" />
+    }
     return (
       
       <div className="row">

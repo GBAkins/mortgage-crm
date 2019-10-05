@@ -12,5 +12,5 @@ export function List({ children }) {
 }
 
 export function ListItem({ children }) {
-  return <li className="collection-item"><div>{children}<a href="#!" className="secondary-content"><i className="material-icons">mail</i></a></div></li>;
+  return <li className="collection-item"><div>{children}</div></li>;
 }

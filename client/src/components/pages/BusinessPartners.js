@@ -2,10 +2,12 @@ import React, { Component } from "react";
 import BusinessPartnersAPI from "../../utils/BusinessPartnersAPI";
 import Container from "../layouts/Container";
 import { List, ListItem } from "../layouts/List";
+import {Redirect} from "react-router-dom";
 
 class BusinessPartners extends Component {
   state = {
-    businessPartners: []
+    businessPartners: [],
+    redirect: false
   };
 
   componentDidMount() {
@@ -13,7 +15,6 @@ class BusinessPartners extends Component {
   }
 
   loadBusinessPartners = () => {
-      console.log("made it");
     BusinessPartnersAPI.getBusinessPartners()
       .then(res => {
           this.setState({ businessPartners: res.data });
@@ -22,7 +23,14 @@ class BusinessPartners extends Component {
       .catch(err => console.log(err));
   };
 
+  handleOnClick() {
+    this.setState({redirect: true});
+  };
+
   render() {
+    if (this.state.redirect) {
+      return <Redirect to="/NewBusinessPartner" />
+    }
     return (
       <Container>
         <h5>Business Partners</h5>
@@ -32,7 +40,7 @@ class BusinessPartners extends Component {
                   <ListItem key={businessPartner._id}>
                       <a href={"/businessPartners/" + businessPartner._id}>
                           <strong>
-                              {businessPartner.firstName}{businessPartner.lastName}
+                              {businessPartner.firstName} {businessPartner.lastName}
                           </strong>
                       </a>
                   </ListItem>
@@ -41,6 +49,7 @@ class BusinessPartners extends Component {
         ) : (
             <h3>No Business Partners to Display</h3>
         )}
+        <a className="waves-effect waves-light btn" href="/NewBusinessPartner" onClick={this.handleOnClick} >Add New Business Partner</a>
       </Container>
     );
   }

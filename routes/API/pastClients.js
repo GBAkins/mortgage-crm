@@ -35,7 +35,6 @@ module.exports = function(app) {
   
   
     app.post("/api/pastClients", (req, res) => {
-      console.log("yesss");
       const pastClient = {
         firstName: req.body.firstName,
         lastName: req.body.lastName,

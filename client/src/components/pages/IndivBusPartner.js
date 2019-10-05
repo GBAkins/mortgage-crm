@@ -2,10 +2,12 @@ import React, { Component } from "react";
 import BusinessPartnersAPI from "../../utils/BusinessPartnersAPI";
 import Container from "../layouts/Container";
 import { IndivContact, IndivContactItem } from "../layouts/IndivContact";
+import {Redirect} from "react-router-dom";
 
 class IndivBusPartner extends Component {
   state = {
-    businessPartner: {}
+    businessPartner: {},
+    redirect: false
   };
 
   componentDidMount() {
@@ -24,11 +26,17 @@ class IndivBusPartner extends Component {
   handleDelete = e => {
     e.preventDefault();
     BusinessPartnersAPI.deleteBusinessPartner(this.props.match.params.id)
-    .then(console.log("worked"))
+    .then(() => { 
+      this.setState({redirect: true});
+      console.log("deleted");
+    })
     .catch((err)=>console.log(err));
   }
 
   render() {
+    if (this.state.redirect) {
+      return <Redirect to="/BusinessPartners" />
+    }
     return (
       <Container>
           <IndivContact>

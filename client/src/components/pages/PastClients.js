@@ -2,10 +2,12 @@ import React, { Component } from "react";
 import PastClientsAPI from "../../utils/PastClientsAPI";
 import Container from "../layouts/Container";
 import { List, ListItem } from "../layouts/List";
+import {Redirect} from "react-router-dom";
 
 class PastClients extends Component {
   state = {
-    pastClients: []
+    pastClients: [],
+    redirect: false
   };
 
   componentDidMount() {
@@ -21,7 +23,14 @@ class PastClients extends Component {
       .catch(err => console.log(err));
   };
 
+  handleOnClick() {
+    this.setState({redirect: true});
+  };
+
   render() {
+    if (this.state.redirect) {
+      return <Redirect to="/NewPastClient" />
+    }
     return (
       <Container>
         <h5>Past Clients</h5>
@@ -40,6 +49,7 @@ class PastClients extends Component {
         ) : (
             <h3>No Past Clients to Display</h3>
         )}
+        <a className="waves-effect waves-light btn" href="/NewPastClient" onClick={this.handleOnClick} >Add New Past Client</a>
       </Container>
     );
   }
