@@ -44,7 +44,7 @@ class IndivBusPartner extends Component {
             <IndivContactItem>
               <h6>{this.state.businessPartner.relationshipType}</h6>
               <h6>{this.state.businessPartner.phoneNumber}</h6>
-              <h6>{this.state.businessPartner.emailAddress}</h6>
+              <h6><a href={"mailto:"+this.state.businessPartner.emailAddress}>{this.state.businessPartner.emailAddress}</a></h6>
               <h6>{this.state.businessPartner.streetAddress}</h6>
               <h6>{this.state.businessPartner.city}, {this.state.businessPartner.state} {this.state.businessPartner.zipCode}</h6>
               <h6>{this.state.businessPartner.notes}</h6>
