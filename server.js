@@ -1,5 +1,5 @@
 const express = require("express");
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3001;
 const app = express();
 const mongoose = require("mongoose");
 const path = require("path");
@@ -16,8 +16,8 @@ mongoose.connect("mongodb://heroku_gwd1cnzd:r17g5gr7bsbtsral6plto9i2d5@ds131119.
   useUnifiedTopology: true
 });
 
-require("./routes/api/businessPartners")(app);
-require("./routes/api/pastClients")(app);
+require("./routes/API/businessPartners")(app);
+require("./routes/API/pastClients")(app);
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
