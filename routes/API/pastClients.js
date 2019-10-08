@@ -1,7 +1,5 @@
 module.exports = function(app) {
-    const express = require("express");
     const db = require("../../models");
-    const axios = require("axios");
   
     app.get("/test", (req, res) => {
       res.json({
