@@ -8,7 +8,6 @@ const db = require("./models/BusinessPartner");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static("public"));
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
@@ -21,6 +20,10 @@ mongoose.connect("mongodb://heroku_gwd1cnzd:r17g5gr7bsbtsral6plto9i2d5@ds131119.
 
 require("./routes/api/businessPartners")(app);
 require("./routes/api/pastClients")(app);
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
