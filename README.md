@@ -7,23 +7,22 @@ This application is a customer relationship manager for mortgage loan officers t
 ## Screenshots
 
 Main Dashboard
-<img src="images/CRM-Dashboard.png" width="350">
-![alt text](https://github.com/GBAkins/mortgage-crm/blob/master/images/CRM-Business-Partners.PNG "Main Dashboard")
+![alt text](https://github.com/GBAkins/mortgage-crm/blob/master/images/CRM-Dashboard.PNG "Main Dashboard")
 
 View Past Clients Screen
-<img src="images/CRM-Past-Clients.png" width="350">
+![alt text](https://github.com/GBAkins/mortgage-crm/blob/master/images/CRM-Past-Clients.PNG "Main Dashboard")
 
 View Business Partners Screen
-<img src="images/CRM-Business-Partners.png" width="350">
+![alt text](https://github.com/GBAkins/mortgage-crm/blob/master/images/CRM-Business-Partners.PNG "Main Dashboard")
 
 Add New Past Client Screen
-<img src="images/CRM-New-Past-Client.png" width="350">
+![alt text](https://github.com/GBAkins/mortgage-crm/blob/master/images/CRM-New-Past-Client.PNG "Main Dashboard")
 
 Add New Business Partner Screen
-<img src="images/CRM-New-Bus-Partner.png" width="350">
+![alt text](https://github.com/GBAkins/mortgage-crm/blob/master/images/CRM-New-Bus-Part.PNG "Main Dashboard")
 
 Individual Contact Screen
-<img src="images/CRM-View-Contact.png" width="350">
+![alt text](https://github.com/GBAkins/mortgage-crm/blob/master/images/CRM-View-Contact.PNG "Main Dashboard")
 
 ## Instructions
 
