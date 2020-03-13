@@ -19,7 +19,7 @@ Add New Past Client Screen
 ![alt text](https://github.com/GBAkins/mortgage-crm/blob/master/images/CRM-New-Past-Client.PNG "Main Dashboard")
 
 Add New Business Partner Screen
-![alt text](https://github.com/GBAkins/mortgage-crm/blob/master/images/CRM-New-Bus-Part.PNG "Main Dashboard")
+![alt text](https://github.com/GBAkins/mortgage-crm/blob/master/images/CRM-New-Bus-Partner.PNG "Main Dashboard")
 
 Individual Contact Screen
 ![alt text](https://github.com/GBAkins/mortgage-crm/blob/master/images/CRM-View-Contact.PNG "Main Dashboard")
