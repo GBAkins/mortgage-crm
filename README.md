@@ -1,11 +1,11 @@
 # Mortgage CRM App
-___
+
 ## Purpose
-___
+
 This application is a customer relationship manager for mortgage loan officers to keep track of their past clients and business partners, but could be used for almost any sales/service position. Past client bithdays and loan anniversaries are shown on the main dashboard to keep user aware of opportunities to reach out to clients.
 
 ## Screenshots
-___
+
 Main Dashboard
 <img src="images/CRM-Dashboard.png" width="350">
 
@@ -25,7 +25,7 @@ Individual Contact Screen
 <img src="images/CRM-View-Contact.png" width="350">
 
 ## Instructions
-___
+
 To add a new past client or business partner:
 1. Select the desired item in the Contacts dropdown
 2. Complete the form with that contact's information.
