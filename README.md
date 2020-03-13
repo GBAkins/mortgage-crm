@@ -8,6 +8,7 @@ This application is a customer relationship manager for mortgage loan officers t
 
 Main Dashboard
 <img src="images/CRM-Dashboard.png" width="350">
+![alt text](https://github.com/GBAkins/mortgage-crm/blob/master/images/CRM-Business-Partners.PNG "Main Dashboard")
 
 View Past Clients Screen
 <img src="images/CRM-Past-Clients.png" width="350">
@@ -33,10 +34,14 @@ To add a new past client or business partner:
 4. Select the contact from the list to view the contact information
 
 ## Author
+
 Gavin Akins
+
 gavinakins29@gmail.com
-(https://github.com/GBAkins "My GitHub")
-(https://www.linkedin.com/in/gavin-akins-793806101/ "My LinkedIn")
+
+[My GitHub](https://github.com/GBAkins "My GitHub")
+
+[My LinkedIn](https://www.linkedin.com/in/gavin-akins-793806101/ "My LinkedIn")
 
 ## Built With
 - HTML, CSS, & JavaScript
